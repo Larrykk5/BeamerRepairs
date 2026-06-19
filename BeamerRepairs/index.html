@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BeamerRepairs — BMW & Luxury Vehicle Specialists</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── HOME-ONLY STYLES ── */
+    .hero {
+      min-height: 92vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      background: var(--deep-navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 6rem;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      top: 0; right: -60px;
+      width: 120px; height: 100%;
+      background: var(--deep-navy);
+      transform: skewX(-5deg);
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 32px; height: 2px;
+      background: var(--red);
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 6vw, 6.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.03em;
+      color: var(--off-white);
+      margin-bottom: 1.6rem;
+    }
+    .hero-title span { color: var(--steel-blue); display: block; }
+    .hero-subtitle {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--chrome);
+      max-width: 360px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .hero-cta-group { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; position: relative; z-index: 3; }
+    .hero-right {
+      background: var(--obsidian);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right-bg {
+      position: absolute;
+      inset: 0;
+      background: url('https://images.unsplash.com/photo-1617531653332-bd46c16f4d68?w=900&q=80') center/cover no-repeat;
+      opacity: 0.35;
+    }
+    .hero-right-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--deep-navy) 0%, transparent 60%);
+    }
+    .hero-stats {
+      position: absolute;
+      bottom: 3rem; right: 3rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      z-index: 2;
+    }
+    .hero-stat { text-align: right; }
+    .hero-stat-num { font-family: var(--font-display); font-size: 2.8rem; color: var(--off-white); line-height: 1; }
+    .hero-stat-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--light-grey); }
+    .hero-badge {
+      position: absolute;
+      top: 3rem; right: 3rem;
+      background: rgba(28,79,130,0.25);
+      border: 1px solid rgba(28,79,130,0.5);
+      backdrop-filter: blur(8px);
+      padding: 1rem 1.4rem;
+      z-index: 2;
+    }
+    .hero-badge p { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--chrome); margin: 0; }
+    .hero-badge strong { display: block; font-family: var(--font-display); font-size: 1.3rem; letter-spacing: 0.08em; color: var(--off-white); }
+    .services-strip { background: var(--deep-navy); padding: 5rem 0; }
+    .why-us { background: var(--obsidian); }
+    .testimonials { background: var(--deep-navy); }
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 4rem 1.5rem 3rem; }
+      .hero-left::after { display: none; }
+      .hero-right { min-height: 300px; }
+      .hero-stats { bottom: 1.5rem; right: 1.5rem; flex-direction: row; gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <span class="brand-dot"></span>BEAMER<span style="color:var(--steel-blue)">REPAIRS</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link" href="diagnostics.html">Diagnostics</a></li>
+        <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">BMW &amp; Luxury Vehicle Specialists</p>
+    <h1 class="hero-title">PRECISION<span>ENGINEERED</span>REPAIRS.</h1>
+    <p class="hero-subtitle">Independent specialists in BMW and European luxury vehicles. Factory-level expertise, without the dealership overheads.</p>
+    <div class="hero-cta-group">
+      <a href="contact.html" class="btn-primary-brand">Book Service <i class="bi bi-arrow-right"></i></a>
+      <a href="services.html" class="btn-outline-brand">View Services</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-bg"></div>
+    <div class="hero-right-overlay"></div>
+    <div class="hero-badge">
+      <p>Certified</p>
+      <strong>BMW TRAINED</strong>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">2,400+</div>
+        <div class="hero-stat-label">Vehicles Serviced</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">16 YRS</div>
+        <div class="hero-stat-label">In Operation</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4.9 ★</div>
+        <div class="hero-stat-label">Customer Rating</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BRAND TICKER -->
+<div class="brands-bar">
+  <div class="brands-ticker">
+    <span>BMW</span><span class="sep">·</span><span>MINI</span><span class="sep">·</span>
+    <span>MERCEDES-BENZ</span><span class="sep">·</span><span>AUDI</span><span class="sep">·</span>
+    <span>PORSCHE</span><span class="sep">·</span><span>ROLLS-ROYCE</span><span class="sep">·</span>
+    <span>BENTLEY</span><span class="sep">·</span><span>JAGUAR</span><span class="sep">·</span>
+    <span>LAND ROVER</span><span class="sep">·</span>
+    <span>BMW</span><span class="sep">·</span><span>MINI</span><span class="sep">·</span>
+    <span>MERCEDES-BENZ</span><span class="sep">·</span><span>AUDI</span><span class="sep">·</span>
+    <span>PORSCHE</span><span class="sep">·</span><span>ROLLS-ROYCE</span><span class="sep">·</span>
+    <span>BENTLEY</span><span class="sep">·</span><span>JAGUAR</span><span class="sep">·</span>
+    <span>LAND ROVER</span><span class="sep">·</span>
+  </div>
+</div>
+
+<!-- SERVICES STRIP -->
+<section class="services-strip">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-lg-6">
+        <p class="section-eyebrow">What We Do</p>
+        <h2 class="section-title">CORE SERVICES</h2>
+      </div>
+      <div class="col-lg-6 d-flex align-items-end">
+        <p class="section-body" style="max-width:100%">From routine servicing to complex engine overhauls — every job handled with the same obsessive attention to detail.</p>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <span class="service-number">01</span>
+          <div class="service-icon"><i class="bi bi-gear-wide-connected"></i></div>
+          <h4>Engine Diagnostics</h4>
+          <p>BMW-specific ISTA diagnostic tools to read fault codes, analyse live data, and identify root causes — not just symptoms.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <span class="service-number">02</span>
+          <div class="service-icon"><i class="bi bi-tools"></i></div>
+          <h4>Full Servicing</h4>
+          <p>Oil and filter changes, brake inspections, fluid top-ups, and comprehensive safety checks using OEM-spec parts.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <span class="service-number">03</span>
+          <div class="service-icon"><i class="bi bi-lightning-charge"></i></div>
+          <h4>Electrical Systems</h4>
+          <p>Advanced BMW electronics, MOST bus diagnostics, iDrive systems, and EV/hybrid high-voltage battery servicing.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <span class="service-number">04</span>
+          <div class="service-icon"><i class="bi bi-speedometer2"></i></div>
+          <h4>Performance Tuning</h4>
+          <p>ECU remapping, intake and exhaust upgrades, and suspension tuning — all within manufacturer tolerances.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <span class="service-number">05</span>
+          <div class="service-icon"><i class="bi bi-car-front"></i></div>
+          <h4>Transmission</h4>
+          <p>Automatic, manual, and SMG gearbox overhauls. DSG servicing and ZF 8-speed fluid and mechatronic repairs.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="service-card">
+          <span class="service-number">06</span>
+          <div class="service-icon"><i class="bi bi-shield-check"></i></div>
+          <h4>MOT &amp; Pre-sale</h4>
+          <p>Thorough pre-MOT checks, pre-purchase inspections, and condition reports to protect your investment.</p>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="services.html" class="btn-outline-brand">View All Services <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why-us">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6">
+        <p class="section-eyebrow">Why Choose Us</p>
+        <h2 class="section-title">DEALER KNOWLEDGE.<br>INDEPENDENT<br>PRICES.</h2>
+        <div class="mt-4">
+          <div class="why-item">
+            <div class="why-icon"><i class="bi bi-cpu"></i></div>
+            <div>
+              <h5>Factory-Level Diagnostics</h5>
+              <p>We invest in the same diagnostic platforms BMW dealers use — ISTA/P, ISTA/D, and NCS Expert.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon"><i class="bi bi-award"></i></div>
+            <div>
+              <h5>Certified Technicians</h5>
+              <p>All engineers hold BMW Group certifications with ongoing annual training at manufacturer facilities.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon"><i class="bi bi-chat-text"></i></div>
+            <div>
+              <h5>Transparent Communication</h5>
+              <p>Written quotes before any work begins. No surprises on collection — ever.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <div class="why-icon"><i class="bi bi-clock-history"></i></div>
+            <div>
+              <h5>Courtesy Vehicles Available</h5>
+              <p>A fleet of clean loan cars keeps you moving while yours is with us.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="why-image-wrap">
+          <div class="why-image-border"></div>
+          <img src="https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=700&q=80" alt="Technician working on BMW" class="why-image" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="container">
+    <div class="text-center mb-5">
+      <p class="section-eyebrow" style="justify-content:center">Customer Reviews</p>
+      <h2 class="section-title">WHAT DRIVERS SAY</h2>
+    </div>
+    <div class="row g-3">
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Took my F30 335i in for an oil leak two other garages couldn't trace. BeamerRepairs found the valve cover gasket failure in under an hour. Outstanding."</blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">JM</div>
+            <div><div class="author-name">James M.</div><div class="author-car">BMW 335i F30</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Prices are genuinely 30–40% below what the dealer quoted. Quality of work is identical — actually better because they explain everything clearly."</blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">SK</div>
+            <div><div class="author-name">Sandra K.</div><div class="author-car">BMW X5 G05</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <blockquote>"My E92 M3 needed a full subframe refresh and a DCT fluid change. They understood the car, respected it, and delivered it back cleaner than it arrived."</blockquote>
+          <div class="testimonial-author">
+            <div class="author-avatar">TO</div>
+            <div><div class="author-name">Thomas O.</div><div class="author-car">BMW M3 E92</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="reviews.html" class="btn-outline-brand">Read All Reviews <i class="bi bi-arrow-right"></i></a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BANNER -->
+<div class="cta-banner">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8 mb-3 mb-lg-0">
+        <h2>READY TO BOOK YOUR SERVICE?</h2>
+        <p>Drop us a message or call — we'll get your BMW back on the road.</p>
+      </div>
+      <div class="col-lg-4 text-lg-end">
+        <a href="contact.html" class="btn-primary-brand">Book Now <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="footer-brand">BEAMER<span style="color:var(--steel-blue)">REPAIRS</span></div>
+        <p class="footer-tagline">Independent BMW &amp; luxury vehicle specialists. Dealer knowledge. Independent prices.</p>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <p class="footer-heading">Navigate</p>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="diagnostics.html">Diagnostics</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <p class="footer-heading">Services</p>
+        <ul class="footer-links">
+          <li><a href="services.html">Engine Diagnostics</a></li>
+          <li><a href="services.html">Annual Servicing</a></li>
+          <li><a href="services.html">Electrical Systems</a></li>
+          <li><a href="services.html">Transmission</a></li>
+          <li><a href="services.html">Performance Tuning</a></li>
+          <li><a href="services.html">MOT Testing</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <p class="footer-heading">Contact</p>
+        <div class="footer-contact-item"><i class="bi bi-geo-alt-fill"></i><span>Unit 7, Meridian Trade Park, Charlton, London SE7 8RT</span></div>
+        <div class="footer-contact-item"><i class="bi bi-telephone-fill"></i><span>020 8123 4567</span></div>
+        <div class="footer-contact-item"><i class="bi bi-envelope-fill"></i><span>hello@beamerrepairs.co.uk</span></div>
+        <div class="footer-contact-item"><i class="bi bi-clock-fill"></i><span>Mon–Fri 08:00–18:00 · Sat 08:30–14:00</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 BeamerRepairs Ltd. All rights reserved. · Not affiliated with BMW AG.</p>
+      <div class="social-links">
+        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
