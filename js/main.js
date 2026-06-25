@@ -234,6 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryFilters();
   initContactForm();
   initFaqButtons();
+  initFaqSearchAndFilters();
   initActiveNav();
 });
 
@@ -241,6 +242,50 @@ function initFaqButtons() {
   document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => toggleFaq(button));
   });
+}
+
+function initFaqSearchAndFilters() {
+  const searchInput = document.getElementById('faqSearch');
+  const filterButtons = document.querySelectorAll('.faq-filter-btn');
+  const faqItems = Array.from(document.querySelectorAll('.faq-item'));
+  if (!searchInput || !faqItems.length) return;
+
+  const updateVisibility = () => {
+    const query = searchInput.value.trim().toLowerCase();
+    const activeFilter = document.querySelector('.faq-filter-btn.active')?.dataset.filter || 'all';
+    let visibleCount = 0;
+
+    faqItems.forEach(item => {
+      const topic = (item.dataset.topic || 'general').toLowerCase();
+      const text = item.textContent.toLowerCase();
+      const matchesFilter = activeFilter === 'all' || topic === activeFilter;
+      const matchesQuery = !query || text.includes(query);
+      const isVisible = matchesFilter && matchesQuery;
+      item.classList.toggle('hidden', !isVisible);
+      if (isVisible) visibleCount += 1;
+    });
+
+    const existingEmpty = document.querySelector('.faq-empty');
+    if (existingEmpty) existingEmpty.remove();
+
+    if (!visibleCount) {
+      const emptyState = document.createElement('div');
+      emptyState.className = 'faq-empty';
+      emptyState.textContent = 'No questions match your search yet.';
+      searchInput.closest('.faq-search-panel').insertAdjacentElement('afterend', emptyState);
+    }
+  };
+
+  searchInput.addEventListener('input', updateVisibility);
+  filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      updateVisibility();
+    });
+  });
+
+  updateVisibility();
 }
 
 window.toggleFaq = toggleFaq;

@@ -405,6 +405,40 @@ footer {
 .hours-row.open .hours-time { color: var(--off-white); }
 
 /* ─── FAQ ────────────────────────────────────────────── */
+.faq-search-panel {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(200,205,214,0.12);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+.faq-search-input {
+  width: 100%;
+  border: 1px solid rgba(200,205,214,0.15);
+  background: rgba(255,255,255,0.04);
+  color: var(--off-white);
+  padding: 0.9rem 1rem;
+  border-radius: 0.8rem;
+  margin-bottom: 0.9rem;
+}
+.faq-search-input::placeholder { color: var(--light-grey); }
+.faq-filters { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.faq-filter-btn {
+  border: 1px solid rgba(200,205,214,0.15);
+  background: transparent;
+  color: var(--chrome);
+  padding: 0.5rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.faq-filter-btn.active, .faq-filter-btn:hover {
+  background: var(--steel-blue);
+  color: #fff;
+  border-color: var(--steel-blue);
+}
 .faq-item { border-bottom: 1px solid rgba(200,205,214,0.08); }
 .faq-question {
   display: flex; justify-content: space-between; align-items: center;
@@ -417,6 +451,14 @@ footer {
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
 .faq-item.open .faq-answer { max-height: 300px; padding-bottom: 1.2rem; }
 .faq-answer p { font-size: 0.9rem; color: var(--light-grey); line-height: 1.75; margin: 0; }
+.faq-item.hidden { display: none; }
+.faq-empty {
+  padding: 1.2rem;
+  border: 1px dashed rgba(200,205,214,0.2);
+  border-radius: 0.9rem;
+  color: var(--light-grey);
+  text-align: center;
+}
 
 /* ─── GALLERY ────────────────────────────────────────── */
 .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
