@@ -260,7 +260,11 @@ section { padding: 6rem 0; }
 .diag-card:hover,
 .team-card:hover,
 .timeline-card:hover,
-.stat-box:hover {
+.stat-box:hover,
+.warning-card:hover,
+.transport-card:hover,
+.pricing-card:hover,
+.review-cta:hover {
   border-color: rgba(200,205,214,0.25);
   background: rgba(28,79,130,0.08);
   transform: translateY(-4px);
@@ -522,6 +526,7 @@ footer {
   border: 1px solid rgba(200,205,214,0.12);
   border-radius: 1rem;
   padding: 2rem 2.2rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 }
 
 /* ─── CONTACT FORM ───────────────────────────────────── */
@@ -535,6 +540,7 @@ footer {
   border-radius: 1rem;
   padding: 1.6rem;
   height: 100%;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 }
 .warning-icon {
   width: 48px;
@@ -640,6 +646,12 @@ textarea.form-control-custom { min-height: 130px; resize: vertical; }
   font-size: 0.9rem;
   font-weight: 600;
   text-decoration: none;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+}
+.whatsapp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(37, 211, 102, 0.24);
+  filter: brightness(1.05);
 }
 .transport-grid { display: grid; gap: 1rem; }
 .transport-card {
@@ -647,6 +659,7 @@ textarea.form-control-custom { min-height: 130px; resize: vertical; }
   border: 1px solid rgba(200,205,214,0.12);
   border-radius: 1rem;
   padding: 1.15rem 1.2rem;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 }
 .transport-icon {
   width: 42px;
@@ -676,6 +689,7 @@ textarea.form-control-custom { min-height: 130px; resize: vertical; }
   border: 1px solid rgba(200,205,214,0.12);
   border-radius: 1rem;
   overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
 }
 .map-card iframe {
   width: 100%;
@@ -701,6 +715,7 @@ textarea.form-control-custom { min-height: 130px; resize: vertical; }
   padding: 2rem;
   height: 100%;
   position: relative;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
 }
 .pricing-card.featured {
   border-color: var(--steel-blue);
