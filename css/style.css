@@ -460,6 +460,39 @@ footer {
 /* ─── CONTACT FORM ───────────────────────────────────── */
 .contact-info-block { background: var(--deep-navy); border: 1px solid rgba(200,205,214,0.08); padding: 2rem; height: 100%; }
 .form-group { margin-bottom: 1.2rem; }
+
+/* ─── WARNING CARDS ──────────────────────────────────── */
+.warning-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(200,205,214,0.12);
+  border-radius: 1rem;
+  padding: 1.6rem;
+  height: 100%;
+}
+.warning-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(204,34,34,0.14);
+  color: var(--red);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+.warning-card h4 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--off-white);
+  margin-bottom: 0.6rem;
+}
+.warning-card p {
+  font-size: 0.92rem;
+  color: var(--chrome);
+  margin: 0;
+  line-height: 1.7;
+}
 .form-label-custom { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--chrome); margin-bottom: 0.5rem; }
 .form-control-custom { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid rgba(200,205,214,0.15); color: var(--off-white); padding: 0.85rem 1rem; font-size: 0.9rem; font-family: var(--font-body); outline: none; transition: border-color 0.2s; }
 .form-control-custom:focus { border-color: var(--steel-blue); }
