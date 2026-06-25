@@ -46,32 +46,36 @@
   <div class="container">
     <div class="row g-4">
       <div class="col-lg-7">
-        <div id="contact-form-wrap">
+        <form id="contact-form-wrap" novalidate>
           <div class="form-group">
-            <label class="form-label-custom">Your Name</label>
-            <input type="text" class="form-control-custom" placeholder="e.g. James Smith" />
+            <label class="form-label-custom" for="name">Your Name</label>
+            <input id="name" name="name" type="text" class="form-control-custom" data-validate="required" aria-describedby="name-error" placeholder="e.g. James Smith" />
+            <div id="name-error" class="form-error" role="alert"></div>
           </div>
           <div class="row g-3">
             <div class="col-md-6">
               <div class="form-group">
-                <label class="form-label-custom">Email Address</label>
-                <input type="email" class="form-control-custom" placeholder="you@example.com" />
+                <label class="form-label-custom" for="email">Email Address</label>
+                <input id="email" name="email" type="email" class="form-control-custom" data-validate="email" aria-describedby="email-error" placeholder="you@example.com" />
+                <div id="email-error" class="form-error" role="alert"></div>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label class="form-label-custom">Phone Number</label>
-                <input type="tel" class="form-control-custom" placeholder="+44 7700 000000" />
+                <label class="form-label-custom" for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" class="form-control-custom" data-validate="required" aria-describedby="phone-error" placeholder="+44 7700 000000" />
+                <div id="phone-error" class="form-error" role="alert"></div>
               </div>
             </div>
           </div>
           <div class="form-group">
-            <label class="form-label-custom">Vehicle (Year, Make, Model)</label>
-            <input type="text" class="form-control-custom" placeholder="e.g. 2019 BMW M340i xDrive" />
+            <label class="form-label-custom" for="vehicle">Vehicle (Year, Make, Model)</label>
+            <input id="vehicle" name="vehicle" type="text" class="form-control-custom" data-validate="required" aria-describedby="vehicle-error" placeholder="e.g. 2019 BMW M340i xDrive" />
+            <div id="vehicle-error" class="form-error" role="alert"></div>
           </div>
           <div class="form-group">
-            <label class="form-label-custom">Service Required</label>
-            <select class="form-control-custom">
+            <label class="form-label-custom" for="service">Service Required</label>
+            <select id="service" name="service" class="form-control-custom" data-validate="required" aria-describedby="service-error">
               <option value="" disabled selected>Select a service…</option>
               <option>Annual Service / Oil Change</option>
               <option>Engine Diagnostics</option>
@@ -84,13 +88,15 @@
               <option>EV / Hybrid Service</option>
               <option>Other / Not Sure</option>
             </select>
+            <div id="service-error" class="form-error" role="alert"></div>
           </div>
           <div class="form-group">
-            <label class="form-label-custom">Message</label>
-            <textarea class="form-control-custom" placeholder="Tell us more about the issue, preferred dates, or any fault codes you're seeing…"></textarea>
+            <label class="form-label-custom" for="message">Message</label>
+            <textarea id="message" name="message" class="form-control-custom" data-validate="required" aria-describedby="message-error" placeholder="Tell us more about the issue, preferred dates, or any fault codes you're seeing…"></textarea>
+            <div id="message-error" class="form-error" role="alert"></div>
           </div>
-          <button class="btn-primary-brand" onclick="submitForm()">Send Enquiry <i class="bi bi-arrow-right"></i></button>
-        </div>
+          <button type="submit" class="btn-primary-brand" onclick="submitForm(event)">Send Enquiry <i class="bi bi-arrow-right"></i></button>
+        </form>
       </div>
 
       <div class="col-lg-5">

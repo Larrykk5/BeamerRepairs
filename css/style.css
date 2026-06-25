@@ -10,6 +10,8 @@
   --light-grey: #8A8A9A;
   --font-display: 'Bebas Neue', sans-serif;
   --font-body:    'Inter', sans-serif;
+  --transition-fast: 180ms ease;
+  --shadow-card: 0 12px 30px rgba(0, 0, 0, 0.16);
 }
 
 /* ─── RESET & BASE ─────────────────────────────────── */
@@ -227,6 +229,13 @@ section { padding: 6rem 0; }
 .breadcrumb-nav span { margin: 0 0.5rem; }
 
 /* ─── SERVICE CARDS ─────────────────────────────────── */
+.service-card,
+.testimonial-card,
+.diag-card,
+.team-card,
+.stat-box {
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+}
 .service-card {
   border: 1px solid rgba(200,205,214,0.1);
   padding: 2rem;
@@ -244,9 +253,15 @@ section { padding: 6rem 0; }
   transition: height 0.3s ease;
 }
 .service-card:hover::before { height: 100%; }
-.service-card:hover {
+.service-card:hover,
+.testimonial-card:hover,
+.diag-card:hover,
+.team-card:hover,
+.stat-box:hover {
   border-color: rgba(200,205,214,0.25);
   background: rgba(28,79,130,0.08);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-card);
 }
 .service-icon {
   font-size: 1.8rem;
@@ -409,6 +424,20 @@ footer {
 .gallery-item:hover .gallery-overlay { opacity: 1; }
 .gallery-overlay i { font-size: 1.8rem; color: #fff; }
 .gallery-item.large { grid-column: span 2; }
+.gallery-filters {
+  display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 1.25rem;
+}
+.gallery-filter-btn {
+  border: 1px solid rgba(200,205,214,0.16); background: transparent; color: var(--chrome);
+  padding: 0.55rem 0.95rem; border-radius: 999px; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase;
+  cursor: pointer; transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+}
+.gallery-filter-btn.active, .gallery-filter-btn:hover {
+  color: var(--off-white); border-color: var(--steel-blue); background: rgba(28,79,130,0.2);
+}
+.gallery-empty {
+  grid-column: 1 / -1; padding: 2rem; text-align: center; color: var(--light-grey); border: 1px dashed rgba(200,205,214,0.2); border-radius: 12px;
+}
 
 /* ─── DIAGNOSTICS ────────────────────────────────────── */
 .diag-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(200,205,214,0.1); padding: 1.8rem; margin-bottom: 1rem; }
@@ -433,6 +462,16 @@ footer {
 .form-control-custom:focus { border-color: var(--steel-blue); }
 .form-control-custom::placeholder { color: var(--light-grey); font-size: 0.87rem; }
 textarea.form-control-custom { min-height: 130px; resize: vertical; }
+.form-error {
+  min-height: 1.1rem;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: #fda4af;
+}
+.is-invalid {
+  border-color: #f87171 !important;
+  box-shadow: 0 0 0 2px rgba(248,113,113,0.18);
+}
 
 /* ─── TEAM ───────────────────────────────────────────── */
 .team-card { border: 1px solid rgba(200,205,214,0.1); overflow: hidden; transition: border-color 0.25s; }
@@ -459,6 +498,7 @@ textarea.form-control-custom { min-height: 130px; resize: vertical; }
 .why-image-border { position: absolute; top: -16px; left: -16px; right: 16px; bottom: 16px; border: 2px solid rgba(28,79,130,0.4); pointer-events: none; }
 
 /* ─── THEMING & UX ─────────────────────────────────── */
+#themeToggle,
 .theme-toggle {
   margin-left: 1rem;
   border: 1px solid rgba(200,205,214,0.16);
@@ -468,9 +508,11 @@ textarea.form-control-custom { min-height: 130px; resize: vertical; }
   border-radius: 50%;
   display: inline-flex; align-items: center; justify-content: center;
   cursor: pointer;
-  transition: transform 0.2s ease, background 0.2s ease;
+  transition: transform var(--transition-fast), background var(--transition-fast), color var(--transition-fast);
 }
+#themeToggle:hover,
 .theme-toggle:hover { transform: translateY(-1px); background: rgba(255,255,255,0.12); }
+body.light-theme #themeToggle,
 body.light-theme .theme-toggle {
   background: rgba(17,24,39,0.06);
   color: #111827;
