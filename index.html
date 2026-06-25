@@ -108,6 +108,38 @@
     }
     .hero-badge p { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--chrome); margin: 0; }
     .hero-badge strong { display: block; font-family: var(--font-display); font-size: 1.3rem; letter-spacing: 0.08em; color: var(--off-white); }
+    .announcement-bar {
+      background: linear-gradient(90deg, rgba(28,79,130,0.95), rgba(204,34,34,0.9));
+      color: #fff;
+      padding: 0.8rem 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+      font-size: 0.9rem;
+      position: relative;
+    }
+    .announcement-bar .close-bar {
+      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
+      background: transparent; border: none; color: #fff; cursor: pointer;
+    }
+    .promise-strip {
+      background: var(--deep-navy);
+      border-top: 1px solid rgba(200,205,214,0.08);
+      border-bottom: 1px solid rgba(200,205,214,0.08);
+      padding: 1.5rem 0;
+    }
+    .promise-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(200,205,214,0.1);
+      padding: 1.25rem;
+      height: 100%;
+    }
+    .promise-card .promise-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      color: var(--off-white);
+      margin-bottom: 0.35rem;
+    }
+    .promise-card p { margin: 0; font-size: 0.86rem; color: var(--light-grey); }
     .services-strip { background: var(--deep-navy); padding: 5rem 0; }
     .why-us { background: var(--obsidian); }
     .testimonials { background: var(--deep-navy); }
@@ -145,6 +177,11 @@
   </div>
 </nav>
 
+<div id="announcementBar" class="announcement-bar">
+  <span><strong>Spring service offer:</strong> Book a diagnostic inspection this week and receive a complimentary health check.</span>
+  <button class="close-bar" type="button" aria-label="Dismiss announcement" onclick="this.parentElement.remove()">×</button>
+</div>
+
 <!-- HERO -->
 <div class="hero">
   <div class="hero-left">
@@ -179,6 +216,37 @@
     </div>
   </div>
 </div>
+
+<section class="promise-strip">
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-6 col-lg-3">
+        <div class="promise-card">
+          <div class="promise-title">Factory-Level Diagnostics</div>
+          <p>BMW-specific tools and software for accurate fault finding.</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="promise-card">
+          <div class="promise-title">Transparent Pricing</div>
+          <p>Clear quotes before work begins, with no hidden surprises.</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="promise-card">
+          <div class="promise-title">Fast Turnaround</div>
+          <p>Most routine visits completed efficiently without cutting corners.</p>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="promise-card">
+          <div class="promise-title">Owner-Driven Service</div>
+          <p>Personal attention, expert care, and real accountability.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- BRAND TICKER -->
 <div class="brands-bar">
