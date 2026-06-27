@@ -217,6 +217,54 @@ function initContactForm() {
   };
 }
 
+function subscribeNewsletter(formOrInput) {
+  const form = typeof formOrInput === 'string' ? document.querySelector(formOrInput) : formOrInput;
+  const emailInput = form?.querySelector('input[type="email"], input[name="email"], input[data-newsletter-email]')
+    || document.getElementById('newsletter-email')
+    || document.querySelector('[data-newsletter-email]');
+
+  if (!emailInput) {
+    showToast('Newsletter signup form is unavailable right now.', 'error');
+    return false;
+  }
+
+  const email = emailInput.value.trim();
+  const isValid = /^\S+@\S+\.\S+$/.test(email);
+
+  emailInput.classList.toggle('is-invalid', !isValid);
+  emailInput.setAttribute('aria-invalid', String(!isValid));
+
+  if (!isValid) {
+    emailInput.focus();
+    showToast('Please enter a valid email address to subscribe.', 'error');
+    return false;
+  }
+
+  emailInput.value = '';
+  emailInput.classList.remove('is-invalid');
+  emailInput.setAttribute('aria-invalid', 'false');
+  showToast('Thanks for subscribing. You are on the list!', 'success');
+  return true;
+}
+
+function initNewsletterSubscription() {
+  const form = document.querySelector('form[data-newsletter-form], form.newsletter-form, form#newsletter-form');
+  if (!form) return;
+
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    subscribeNewsletter(form);
+  });
+
+  const emailInput = form.querySelector('input[type="email"], input[name="email"], input[data-newsletter-email]');
+  if (emailInput) {
+    emailInput.addEventListener('input', () => {
+      emailInput.classList.remove('is-invalid');
+      emailInput.setAttribute('aria-invalid', 'false');
+    });
+  }
+}
+
 function initActiveNav() {
   const currentPage = location.pathname.split('/').pop() || 'index.html';
   document.querySelectorAll('.nav-link').forEach(link => {
@@ -233,6 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initBackToTop();
   initGalleryFilters();
   initContactForm();
+  initNewsletterSubscription();
   initFaqButtons();
   initFaqSearchAndFilters();
   initActiveNav();
@@ -289,3 +338,4 @@ function initFaqSearchAndFilters() {
 }
 
 window.toggleFaq = toggleFaq;
+window.subscribeNewsletter = subscribeNewsletter;
