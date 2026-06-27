@@ -30,6 +30,9 @@ body {
   overflow-x: hidden;
   transition: background 0.25s ease, color 0.25s ease;
 }
+p {
+  margin-bottom: 1rem;
+}
 body.light-theme {
   background: #f5f7fb;
   color: #111827;
