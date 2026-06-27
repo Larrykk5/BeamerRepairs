@@ -16,7 +16,11 @@
 
 /* ─── RESET & BASE ─────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--steel-blue) rgba(255,255,255,0.06);
+}
 body {
   background: var(--obsidian);
   color: var(--off-white);
@@ -76,6 +80,19 @@ body.light-theme .btn-outline-brand { color: #111827; }
 body.light-theme .gallery-overlay { background: rgba(17,24,39,0.72); }
 body.light-theme .page-hero { background: #e2e8f0; }
 body.light-theme .page-hero::after { color: rgba(17,24,39,0.06); }
+body::-webkit-scrollbar {
+  width: 10px;
+}
+body::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.06);
+}
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--steel-blue), var(--red));
+  border-radius: 999px;
+}
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #2f6aa7, #dd2f2f);
+}
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 
